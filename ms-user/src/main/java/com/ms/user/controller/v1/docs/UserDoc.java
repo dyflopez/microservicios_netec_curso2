@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@Tag(name = "user controller",description = "API Exposed for CRUD operations on user")
+@Tag(name = "user controller netec",description = "API Exposed for CRUD operations on user")
 public interface UserDoc {
 
 
@@ -21,7 +21,10 @@ public interface UserDoc {
             value ={
                     @ApiResponse(responseCode = "201",
                     description = "user created",
-                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                    @ApiResponse(responseCode = "400",
+                            description = "bad request",
+                            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
             }
     )
     ResponseEntity create(@RequestBody UserDTO userDTO);
