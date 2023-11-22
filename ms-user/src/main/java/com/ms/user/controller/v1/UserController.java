@@ -2,6 +2,7 @@ package com.ms.user.controller.v1;
 
 import com.ms.user.controller.v1.docs.UserDoc;
 import com.ms.user.dto.UserDTO;
+import com.ms.user.exception.MyHandleException;
 import com.ms.user.service.IUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,4 +29,12 @@ public class UserController implements UserDoc {
     public ResponseEntity findAll() {
         return this.iUserService.findAll();
     }
+
+    @Override
+    @GetMapping("/{id}")
+    public ResponseEntity findById(String id) {
+        return this.iUserService.findbyId(id);
+    }
+
+
 }

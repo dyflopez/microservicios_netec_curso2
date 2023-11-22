@@ -9,4 +9,6 @@ public interface IUserService {
 
 
     ResponseEntity findAll();
+
+    ResponseEntity findbyId(String id);
 }

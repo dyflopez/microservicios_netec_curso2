@@ -1,6 +1,7 @@
 package com.ms.user.exception;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,11 +14,12 @@ import java.util.List;
 
 @ControllerAdvice
 @AllArgsConstructor
+        @Slf4j
 public class HandleException {
 
     @ExceptionHandler(MyHandleException.class)
     public ResponseEntity lanzarExcepcion(MyHandleException exception){
-
+        log.error("Excepcion personalizada  " + exception.getMessage());
         return new ResponseEntity("Excepcion personalizada  " + exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

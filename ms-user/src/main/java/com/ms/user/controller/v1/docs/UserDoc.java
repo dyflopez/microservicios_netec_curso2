@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
@@ -44,4 +45,21 @@ public interface UserDoc {
             }
     )
     ResponseEntity findAll();
+
+
+    @Operation(summary =  "buscar por id",
+            description =  "obtener usuario por id")
+    @ApiResponses(
+            value ={
+                    @ApiResponse(responseCode = "200",
+                            description = "user created",
+                            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)),
+                    @ApiResponse(responseCode = "400",
+                            description = "bad request",
+                            content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE))
+            }
+    )
+    ResponseEntity findById(@PathVariable String id);
+
+
 }
