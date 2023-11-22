@@ -15,6 +15,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
 springdoc:
   api-docs:
-    path: /api-netec
+    path: /api-daniel
   show-actuator: false
   packages-to-scan: com.ms.user.controller

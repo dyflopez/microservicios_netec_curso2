@@ -30,4 +30,11 @@ public class UserService implements IUserService {
 
        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
+
+    @Override
+    public ResponseEntity findAll() {
+
+        var lista=   userRepository.findAll();
+        return ResponseEntity.ok(lista);
+    }
 }
