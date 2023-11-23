@@ -1,0 +1,31 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hoteldb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  application:
+    name: MS-HOTEL
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        id:
+          new_generator_mappings: false
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  show-actuator: false
+  packages-to-scan: com.ms.hotel.hotel.controller.v1
+
+control:
+  exception:
+    personalizada: Se gener� un error de negocio
+    systema: Se gener� un error del sistema
