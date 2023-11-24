@@ -1,10 +1,12 @@
 server:
   port: 8081
 spring:
+  application:
+    name: MS-user
   datasource:
     url: jdbc:mysql://localhost:3308/userdb
     username: root
-    password: netect123
+    password: netec123
     driver: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -23,3 +25,11 @@ control:
   exception:
     personalizada: Se genero un error de negocio
     system: Se genero un error del sistema
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

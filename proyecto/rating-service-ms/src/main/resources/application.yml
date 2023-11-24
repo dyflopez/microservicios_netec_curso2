@@ -13,3 +13,11 @@ springdoc:
     path: /api-docs
   show-actuator: false
   packages-to-scan: com.ms.rating.service.controller
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
