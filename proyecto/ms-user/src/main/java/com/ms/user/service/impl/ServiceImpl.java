@@ -2,6 +2,7 @@ package com.ms.user.service.impl;
 
 
 import com.ms.user.dto.UserDTO;
+import com.ms.user.exception.MyHandleException;
 import com.ms.user.mapper.UserMapper;
 import com.ms.user.model.UserEntity;
 import com.ms.user.repository.UserRepository;
@@ -35,6 +36,14 @@ public class ServiceImpl implements IUserService {
     @Override
     public ResponseEntity getAll() {
         var user=  this.userRepository.findAll();
+        return ResponseEntity.ok(user);
+    }
+
+    @Override
+    public ResponseEntity getById(String id) {
+        var user=  this
+                .userRepository
+                .findById(id).orElseThrow(()-> new MyHandleException("User does not exist"));
         return ResponseEntity.ok(user);
     }
 
