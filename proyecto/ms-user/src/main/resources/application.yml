@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: MS-user
+    name: MS-USER
   datasource:
     url: jdbc:mysql://localhost:3308/userdb
     username: root
@@ -33,3 +33,16 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+resilience4j:
+  circuitBreaker:
+    instances:
+      responseCircuitBreaker:
+        registerHealIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnable: true
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
